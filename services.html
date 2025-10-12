@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services - Tankiso Design & Installation</title>
+
+<style>
+/* === Base === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  background: #000;
+  color: #fff;
+  overflow: hidden; /* prevent scrollbars */
+}
+
+/* === Fixed Header === */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  z-index: 10;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.logo-title {
+  display: flex;
+  align-items: center;
+}
+
+.logo-title img {
+  width: 55px;
+  height: 55px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.logo-title h1 {
+  font-size: 1.3rem;
+}
+
+nav a {
+  color: #fff;
+  margin: 0 10px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #f4b400;
+}
+
+/* === Split Layout === */
+.main-content {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+/* === Video Section (Left) === */
+.video-section {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.video-section video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* === Services Section (Right) === */
+.services {
+  flex: 1;
+  height: 100vh;
+  background: linear-gradient(to right, rgba(0,0,0,0.8), #111);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 100px 40px 40px;
+  text-align: left;
+  z-index: 5;
+}
+
+.services h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #f4b400;
+}
+
+.services ul {
+  list-style: none;
+  font-size: 1.2rem;
+  line-height: 2;
+  color: #eee;
+}
+
+/* === Footer === */
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background: rgba(0,0,0,0.9);
+  color: #fff;
+  padding: 10px 0;
+  font-size: 0.9rem;
+  z-index: 20;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-container">
+    <div class="logo-title">
+      <img src="images/logo.png" alt="Logo">
+      <h1>Tankiso Design & Installation</h1>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- === Main Split Layout === -->
+<div class="main-content">
+  <!-- Left Video -->
+  <div class="video-section">
+    <video autoplay muted loop playsinline>
+      <source src="images/dh.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <!-- Right Services -->
+  <section class="services">
+    <h2>Our Services</h2>
+    <ul>
+      <li>Architecture & Graphic Design</li>
+      <li>Printing & Branding Materials</li>
+      <li>Software Installation (MS Office, Adobe Master Collection)</li>
+      <li>Network Installation & IT Support</li>
+    </ul>
+  </section>
+</div>
+
+<footer>&copy; <span id="year"></span> Tankiso Design & Installation. All Rights Reserved.</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
