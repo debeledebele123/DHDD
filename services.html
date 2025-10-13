@@ -6,8 +6,19 @@
 <title>Services - Tankiso Design & Installation</title>
 <style>
 /* === Base === */
-* { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', sans-serif; }
-html, body { height:100%; width:100%; background:#000; color:#fff; overflow-x:hidden; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  color: #fff;
+}
 
 /* === Header === */
 header {
@@ -19,6 +30,7 @@ header {
   z-index: 10;
   box-shadow: 0 2px 6px rgba(0,0,0,0.3);
 }
+
 .header-container {
   max-width: 1200px;
   margin: auto;
@@ -26,17 +38,30 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  position: relative;
 }
-.logo-title { display:flex; align-items:center; }
-.logo-title img { width:55px; height:55px; margin-right:10px; border-radius:50%; }
-.logo-title h1 { font-size:1.3rem; color:#f4b400; }
+
+.logo-title {
+  display: flex;
+  align-items: center;
+}
+
+.logo-title img {
+  width: 55px;
+  height: 55px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.logo-title h1 {
+  font-size: 1.3rem;
+}
 
 /* === Navigation === */
 nav {
   display: flex;
   gap: 10px;
 }
+
 nav a {
   color: #fff;
   text-decoration: none;
@@ -44,35 +69,185 @@ nav a {
   border-radius: 4px;
   transition: 0.3s;
 }
-nav a:hover { background:#e67e22; }
 
-/* === Hamburger === */
+nav a:hover {
+  background: #e67e22;
+}
+
+/* Hamburger Button */
 .hamburger {
   display: none;
   flex-direction: column;
   cursor: pointer;
   gap: 5px;
 }
+
 .hamburger div {
   width: 25px;
   height: 3px;
   background: #fff;
-  border-radius: 2px;
   transition: 0.3s;
 }
 
-/* === Main Split Layout === */
-.main-content {
+/* === Split Hero Section === */
+.hero {
   display: flex;
   width: 100%;
   height: 100vh;
-  margin-top: 70px; /* header height */
+  margin-top: 70px; /* header space */
 }
-.video-section {
+
+/* Poster left */
+.hero-left {
   flex: 1;
   position: relative;
-  overflow: hidden;
 }
-.video-section img {
+
+.hero-left img {
   width: 100%;
-  height:
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Text right */
+.hero-right {
+  flex: 1;
+  background: linear-gradient(to right, rgba(0,0,0,0.8), #111);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px;
+}
+
+.hero-right h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #f4b400;
+}
+
+.hero-right p {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+}
+
+.hero-right a {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #e67e22;
+  color: #fff;
+  border-radius: 6px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  transition: 0.3s;
+}
+
+.hero-right a:hover {
+  background: #d35400;
+}
+
+/* === Footer === */
+footer {
+  text-align: center;
+  background: #222;
+  padding: 15px;
+  color: #fff;
+}
+
+/* === Responsive === */
+@media(max-width: 768px){
+  .hero {
+    flex-direction: column;
+    height: auto;
+  }
+  .hero-left, .hero-right {
+    flex: none;
+    width: 100%;
+    height: 50vh;
+  }
+  .hero-right {
+    padding: 30px 20px;
+  }
+
+  nav {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: rgba(0,0,0,0.95);
+    flex-direction: column;
+    width: 200px;
+    display: none;
+  }
+
+  nav a {
+    padding: 12px 20px;
+    border-bottom: 1px solid #333;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-container">
+    <div class="logo-title">
+      <img src="logo.png" alt="Logo">
+      <h1>Tankiso Design & Installation</h1>
+    </div>
+    <div class="hamburger" id="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <nav id="nav-menu">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero Split Layout -->
+<section class="hero">
+  <!-- Left Poster -->
+  <div class="hero-left">
+    <img src="d1 (12).jpg" alt="A4 Poster">
+  </div>
+
+  <!-- Right Text -->
+  <div class="hero-right">
+    <h2>Our Services</h2>
+    <p>Architecture & Graphic Design, Printing & Branding, Software Installation, Network Support.</p>
+    <a href="projects.html">View Projects</a>
+    <a href="services.html">Learn More</a>
+  </div>
+</section>
+
+<footer>
+  &copy; <span id="year"></span> Tankiso Design & Installation. All Rights Reserved.
+</footer>
+
+<script>
+// Footer Year
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// Hamburger toggle
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
+
+hamburger.addEventListener('click', () => {
+  navMenu.classList.toggle('active');
+});
+</script>
+
+</body>
+</html>
